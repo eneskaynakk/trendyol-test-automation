@@ -1,0 +1,38 @@
+# Java class files
+*.class
+
+# Log files
+*.log
+*.tmp
+*.out
+
+# Maven target directory
+/target/
+
+# IntelliJ IDEA specific
+.idea/
+/*.iml
+/.idea_modules/
+/out/
+
+# Eclipse specific files
+.project
+.classpath
+.settings/
+bin/
+
+# Allure Report files
+allure-results/
+allure-report/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Node.js (if you use it for additional tools)
+node_modules/
+package-lock.json
+
+# TestNG specific
+test-output/
+surefire-reports/
