@@ -36,3 +36,6 @@ package-lock.json
 # TestNG specific
 test-output/
 surefire-reports/
+
+#Resources
+test/resources/
