@@ -17,7 +17,7 @@ public class LoginPageElement {
     @FindBy(id = "login-password-input")
     public WebElement password;
 
-    @FindBy(css = "[class='q-primary q-fluid q-button-medium q-button submit']")
+    @FindBy(css = "[type='submit']")
     public WebElement loginButton;
 
     @FindBy(className = "message")

@@ -13,8 +13,8 @@ public class LoginTest extends BaseTest {
 
         getAppLibrary().getPageLibrary().getMainPage().closeCookie();
         getAppLibrary().getPageLibrary().getMainPage().navigateToLoginPage();
-        String actualResult = getAppLibrary().getPageLibrary().getLoginPage().loginProcess();
 
+        String actualResult = getAppLibrary().getPageLibrary().getLoginPage().loginProcess();
         String expectedAccountText = "Hesabım";
         Assert.assertEquals(actualResult,expectedAccountText);
     }

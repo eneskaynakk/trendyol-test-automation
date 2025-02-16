@@ -4,10 +4,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utility.library.FlowsLibrary;
 
 import java.time.Duration;
 
-public class Utility{
+public class Utility extends FlowsLibrary {
 
     public void clickElementWithWait(WebElement element) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
@@ -31,15 +32,6 @@ public class Utility{
         wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
     }
 
-    public String getTextElementWithWait(WebElement element, long second) {
-        try {
-            Thread.sleep(second * 1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        return element.getText();
-    }
-
     public String getTextElement(WebElement element) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
         return wait.until(ExpectedConditions.visibilityOf(element)).getText();
@@ -50,9 +42,9 @@ public class Utility{
         wait.until(ExpectedConditions.elementToBeClickable(element)).clear();
     }
 
-    public static void waits(int second) {
+    public static void waits(long second) {
         try {
-            Thread.sleep(second);
+            Thread.sleep(second * 1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

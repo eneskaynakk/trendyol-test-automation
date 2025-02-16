@@ -36,5 +36,4 @@ public class PageLibrary{
     public CartPage getCartPage() {
         return cartPage;
     }
-
 }

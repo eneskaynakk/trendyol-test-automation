@@ -14,4 +14,9 @@ public class MainPage extends Utility {
         clickElementWithWait(mainPageElement.loginLink);
     }
 
+    public void searchProduct(){
+        clickElementWithWait(mainPageElement.searchBox);
+        sendKeyToElement(mainPageElement.searchBox, "Kol Saati");
+        clickElementWithWait(mainPageElement.searchClick);
+    }
 }

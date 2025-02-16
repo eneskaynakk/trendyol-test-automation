@@ -14,6 +14,12 @@ public class MainPageElement {
     @FindBy(id="onetrust-reject-all-handler")
     public WebElement cookie;
 
-    @FindBy(css="div[class=\"link account-user\"] > p[class=\"link-text\"]")
+    @FindBy(css="div[class='link account-user'] > p[class='link-text']")
     public WebElement loginLink;
+
+    @FindBy(css="[data-testid='suggestion']")
+    public WebElement searchBox;
+
+    @FindBy(css="[data-testid='search-icon']")
+    public WebElement searchClick;
 }

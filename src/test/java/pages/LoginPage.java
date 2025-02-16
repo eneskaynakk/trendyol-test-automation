@@ -11,7 +11,7 @@ public class LoginPage extends Utility {
 
     public String loginProcess() {
         performLogin();
-        return getLoginVerificationTexts();
+        return getLoginVerificationText();
     }
 
     private void performLogin() {
@@ -22,7 +22,8 @@ public class LoginPage extends Utility {
         clickElementWithWait(loginPageElement.loginButton);
     }
 
-    public String getLoginVerificationTexts() {
-        return getTextElementWithWait(mainPageElement.loginLink, 1);
+    public String getLoginVerificationText() {
+        waits(1);
+        return getTextElement(mainPageElement.loginLink);
     }
 }

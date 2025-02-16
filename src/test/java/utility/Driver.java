@@ -8,7 +8,6 @@ public class Driver {
     private static WebDriver driver;
 
     private Driver() {
-        // private constructor: dışarıdan nesne oluşturulmasını engeller
     }
 
     public static WebDriver getDriver() {
