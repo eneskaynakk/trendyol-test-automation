@@ -10,20 +10,32 @@ public class LoginPage extends Utility {
     MainPageElement mainPageElement = new MainPageElement();
 
     public String loginProcess() {
-        performLogin();
+        fillMail();
+        fillPassword();
+        clickLoginButton();
         return getLoginVerificationText();
     }
 
-    private void performLogin() {
+    public void fillMail() {
         String userLoginEmail= ConfigReader.getProperty("email");
-        String userLoginPassword= ConfigReader.getProperty("password");
         sendKeyToElement(loginPageElement.email, userLoginEmail);
+    }
+
+    public void fillPassword() {
+        String userLoginPassword= ConfigReader.getProperty("password");
         sendKeyToElement(loginPageElement.password, userLoginPassword);
+    }
+
+    public void clickLoginButton() {
         clickElementWithWait(loginPageElement.loginButton);
     }
 
+    public String errorMessageControl(){
+        return getTextElement(loginPageElement.errorMessage);
+    }
+
     public String getLoginVerificationText() {
-        waits(1);
+        waits(500);
         return getTextElement(mainPageElement.loginLink);
     }
 }

@@ -1,26 +1,40 @@
 package pages;
 
-import elements.ProductPageElement;
+import elements.ProductListPageElement;
 import utility.Utility;
 
 public class ProductListPage extends Utility {
-    ProductPageElement productPageElement = new ProductPageElement();
+    ProductListPageElement productListPageElement = new ProductListPageElement();
 
-    public String[] searchedProductVerification(){
-        String actualResultFirstPart = getTextElement(productPageElement.firstPartProductMameText);
-        String actualResultSecondPart = getTextElement(productPageElement.secondPartProductMameText);
-        return new String[] {actualResultFirstPart, actualResultSecondPart};
+    public String searchedProductVerification(){
+        return getTextElement(productListPageElement.productListProductName);
     }
 
     public void productFilter(){
-        clickElementWithWait(productPageElement.brandButton);
-        clickElementWithWait(productPageElement.genderButton);
-        clickElementWithWait(productPageElement.maleGenderButton);
-        scrollAndClickElement(productPageElement.priceButton);
-        sendKeyToElement(productPageElement.minPrice, "1000");
-        sendKeyToElement(productPageElement.maxPrice, "4000");
-        clickElementWithWait(productPageElement.priceSearchButton);
+        clickElementWithWait(productListPageElement.brandButton);
+        waits(500);
+        clickElementWithWait(productListPageElement.genderButton);
+        waits(500);
+        clickElementWithWait(productListPageElement.maleGenderButton);
+        waits(500);
+        scrollAndClickElement(productListPageElement.priceButton);
+        waits(500);
+        sendKeyToElement(productListPageElement.minPrice, "1000");
+        sendKeyToElement(productListPageElement.maxPrice, "4000");
+        clickElementWithWait(productListPageElement.priceSearchButton);
+        waits(500);
         refreshPage();
-        waits(1);
+        waits(500);
+    }
+
+    public String getProductName(){
+        scrollToCenter(productListPageElement.productBrandAfterFiltering);
+        return  getTextElement(productListPageElement.productBrandAfterFiltering)
+                + " " + getTextElement(productListPageElement.productModelAfterFiltering)
+                + " " + getTextElement(productListPageElement.productCategoryAfterFiltering);
+    }
+
+    public void goToProductDetailPage(){
+        clickElementWithWait(productListPageElement.productBrandAfterFiltering);
     }
 }

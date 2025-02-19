@@ -3,7 +3,7 @@ package utility.library;
 import org.openqa.selenium.WebDriver;
 import utility.Driver;
 
-public class FlowsLibrary {
+public class FlowsLibrary{
     private final WebDriver driver;
 
     public FlowsLibrary() {
@@ -32,5 +32,15 @@ public class FlowsLibrary {
 
     public void navigateForward() {
         driver.navigate().forward();
+    }
+
+    public void switchToNewTab() {
+        String originalHandle = driver.getWindowHandle();
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(originalHandle)) {
+                driver.switchTo().window(handle);
+                break;
+            }
+        }
     }
 }

@@ -7,14 +7,12 @@ public class PageLibrary{
     MainPage mainPage;
     ProductListPage productListPage;
     ProductDetailPage productDetailPage;
-    CartPage cartPage;
 
     public PageLibrary() {
         loginPage = new LoginPage();
         mainPage = new MainPage();
         productListPage = new ProductListPage();
         productDetailPage = new ProductDetailPage();
-        cartPage = new CartPage();
     }
 
     public LoginPage getLoginPage() {
@@ -31,9 +29,5 @@ public class PageLibrary{
 
     public ProductDetailPage getProductDetailPage() {
         return productDetailPage;
-    }
-
-    public CartPage getCartPage() {
-        return cartPage;
     }
 }

@@ -5,17 +5,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utility.Driver;
 
-public class ProductPageElement {
+public class ProductListPageElement {
 
-    public ProductPageElement() {
+    public ProductListPageElement() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
     @FindBy(css="div[class='dscrptn dscrptn-V2'] > h1")
-    public WebElement firstPartProductMameText;
-
-    @FindBy(css="div[class='dscrptn dscrptn-V2'] > h2")
-    public WebElement secondPartProductMameText;
+    public WebElement productListProductName;
 
     @FindBy(xpath="(//div[@class='chckbox'])[1]")
     public WebElement brandButton;
@@ -37,4 +34,14 @@ public class ProductPageElement {
 
     @FindBy(css="[class='fltr-srch-prc-rng-srch']")
     public WebElement priceSearchButton;
+
+    @FindBy(xpath="(//span[@class='prdct-desc-cntnr-ttl'])[5]")
+    public WebElement productBrandAfterFiltering;
+
+    @FindBy(xpath="(//span[@class='prdct-desc-cntnr-name hasRatings'])[5]")
+    public WebElement productModelAfterFiltering;
+
+    @FindBy(xpath="(//div[@class='product-desc-sub-text'])[5]")
+    public WebElement productCategoryAfterFiltering;
+
 }

@@ -37,5 +37,8 @@ package-lock.json
 test-output/
 surefire-reports/
 
+#Screenshots
+/src/test/java/screenshots
+
 #Resources
 test/resources/
