@@ -12,7 +12,7 @@ public class ProductListPageElement {
     }
 
     @FindBy(css="div[class='dscrptn dscrptn-V2'] > h1")
-    public WebElement productListProductName;
+    public WebElement productListName;
 
     @FindBy(xpath="(//div[@class='chckbox'])[1]")
     public WebElement brandButton;
@@ -35,13 +35,13 @@ public class ProductListPageElement {
     @FindBy(css="[class='fltr-srch-prc-rng-srch']")
     public WebElement priceSearchButton;
 
-    @FindBy(xpath="(//span[@class='prdct-desc-cntnr-ttl'])[5]")
+    @FindBy(xpath="(//span[@class='prdct-desc-cntnr-ttl'])[6]")
     public WebElement productBrandAfterFiltering;
 
-    @FindBy(xpath="(//span[@class='prdct-desc-cntnr-name hasRatings'])[5]")
+    @FindBy(xpath="((//h3[@class=\"prdct-desc-cntnr-ttl-w\"])[6]//span)[2]")
     public WebElement productModelAfterFiltering;
 
-    @FindBy(xpath="(//div[@class='product-desc-sub-text'])[5]")
+    @FindBy(xpath="(//div[@class=\"product-desc-sub-container\"])[6]//div")
     public WebElement productCategoryAfterFiltering;
 
 }

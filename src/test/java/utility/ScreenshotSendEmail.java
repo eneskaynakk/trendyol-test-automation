@@ -43,7 +43,7 @@ public class ScreenshotSendEmail extends Utility{
         if (!Files.exists(screenshotDir)) {
             Files.createDirectories(screenshotDir);
         }
-        String fileName = "screenshot_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".png";
+        String fileName = "screenshot_" + new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date()) + ".png";
         Path destination = screenshotDir.resolve(fileName);
         Files.copy(screenshot.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
         return destination.toFile();
@@ -53,9 +53,9 @@ public class ScreenshotSendEmail extends Utility{
         HtmlEmail email = new HtmlEmail();
         email.setHostName("smtp.gmail.com");
         email.setSmtpPort(465);
-        email.setAuthenticator(new DefaultAuthenticator("eneskaynak2002@gmail.com", "tlqd vaxo leti wtwz"));
+        email.setAuthenticator(new DefaultAuthenticator("your_email", "demo123"));
         email.setSSLOnConnect(true);
-        email.setFrom("eneskaynak2002@gmail.com", "Test Automation");
+        email.setFrom("your_email", "Test Automation");
         email.setSubject("Selenium Test Raporu");
         email.setMsg("Test basarisiz oldu. Ekteki ekran görüntüsüne bakabilirsiniz.");
 
@@ -66,7 +66,7 @@ public class ScreenshotSendEmail extends Utility{
         attachment.setName(screenshotFile.getName());
         email.attach(attachment);
 
-        email.addTo("soymacetin@gmail.com");
+        email.addTo("send_email");
         email.send();
     }
 }

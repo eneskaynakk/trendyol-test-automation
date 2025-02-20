@@ -7,7 +7,7 @@ public class ProductListPage extends Utility {
     ProductListPageElement productListPageElement = new ProductListPageElement();
 
     public String searchedProductVerification(){
-        return getTextElement(productListPageElement.productListProductName);
+        return getTextElement(productListPageElement.productListName);
     }
 
     public void productFilter(){

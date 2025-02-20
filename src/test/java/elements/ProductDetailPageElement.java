@@ -15,10 +15,10 @@ public class ProductDetailPageElement {
     public WebElement popup;
 
     @FindBy(css="[class='product-brand-name-with-link']")
-    public WebElement productListProductBrand;
+    public WebElement productDetailBrand;
 
     @FindBy(css="h1[class='pr-new-br'] > span")
-    public WebElement productListProductModel;
+    public WebElement productDetailModel;
 
     @FindBy(css="[class='add-to-basket-button-text']")
     public WebElement addToCartButton;

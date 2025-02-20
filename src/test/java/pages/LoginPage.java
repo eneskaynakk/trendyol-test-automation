@@ -9,25 +9,36 @@ public class LoginPage extends Utility {
     LoginPageElement loginPageElement = new LoginPageElement();
     MainPageElement mainPageElement = new MainPageElement();
 
-    public String loginProcess() {
-        fillMail();
-        fillPassword();
-        clickLoginButton();
+    public String fillMail() {
+        String userLoginEmail= ConfigReader.getProperty("email");
+        sendKeyToElement(loginPageElement.email, userLoginEmail);
+        clickElementWithWait(loginPageElement.loginButton);
         return getLoginVerificationText();
     }
 
-    public void fillMail() {
-        String userLoginEmail= ConfigReader.getProperty("email");
-        sendKeyToElement(loginPageElement.email, userLoginEmail);
-    }
-
-    public void fillPassword() {
+    public String fillPassword() {
         String userLoginPassword= ConfigReader.getProperty("password");
         sendKeyToElement(loginPageElement.password, userLoginPassword);
+        clickElementWithWait(loginPageElement.loginButton);
+        return getLoginVerificationText();
     }
 
-    public void clickLoginButton() {
+    public String wrongEmailOrPassword() {
+        String userLoginEmail= ConfigReader.getProperty("email");
+        sendKeyToElement(loginPageElement.email, userLoginEmail);
+        String userLoginPassword= "asdasd";
+        sendKeyToElement(loginPageElement.password, userLoginPassword);
         clickElementWithWait(loginPageElement.loginButton);
+        return getLoginVerificationText();
+    }
+
+    public String loginProcess() {
+        String userLoginEmail= ConfigReader.getProperty("email");
+        sendKeyToElement(loginPageElement.email, userLoginEmail);
+        String userLoginPassword= ConfigReader.getProperty("password");
+        sendKeyToElement(loginPageElement.password, userLoginPassword);
+        clickElementWithWait(loginPageElement.loginButton);
+        return getLoginVerificationText();
     }
 
     public String errorMessageControl(){
@@ -35,7 +46,7 @@ public class LoginPage extends Utility {
     }
 
     public String getLoginVerificationText() {
-        waits(500);
+        waits(1000);
         return getTextElement(mainPageElement.loginLink);
     }
 }

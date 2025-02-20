@@ -8,15 +8,12 @@ public class ProductDetailPage extends Utility {
 
     public void productDetailPage(){
         switchToNewTab();
-    }
-
-    public void closePopup(){
         clickElementWithWait(productDetailPageElement.popup);
     }
 
-    public String getFullProductDetailName() {
-        return getTextElement(productDetailPageElement.productListProductBrand)
-                + " " + getTextElement(productDetailPageElement.productListProductModel);
+    public String getProductDetailName() {
+        return getTextElement(productDetailPageElement.productDetailBrand)
+                + " " + getTextElement(productDetailPageElement.productDetailModel);
     }
 
     public String addToCart(){
