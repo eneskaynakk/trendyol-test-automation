@@ -6,11 +6,11 @@ import utility.Utility;
 public class ProductListPage extends Utility {
     ProductListPageElement productListPageElement = new ProductListPageElement();
 
-    public String searchedProductVerification(){
+    public String searchedProductVerification() {
         return getTextElement(productListPageElement.productListName);
     }
 
-    public void productFilter(){
+    public void productFilter() {
         clickElementWithWait(productListPageElement.brandButton);
         waits(500);
         clickElementWithWait(productListPageElement.genderButton);
@@ -27,14 +27,14 @@ public class ProductListPage extends Utility {
         waits(500);
     }
 
-    public String getProductName(){
+    public String getProductName() {
         scrollToCenter(productListPageElement.productBrandAfterFiltering);
         return  getTextElement(productListPageElement.productBrandAfterFiltering)
                 + " " + getTextElement(productListPageElement.productModelAfterFiltering)
                 + " " + getTextElement(productListPageElement.productCategoryAfterFiltering);
     }
 
-    public void goToProductDetailPage(){
+    public void goToProductDetailPage() {
         clickElementWithWait(productListPageElement.productBrandAfterFiltering);
     }
 }

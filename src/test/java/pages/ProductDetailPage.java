@@ -6,7 +6,7 @@ import utility.Utility;
 public class ProductDetailPage extends Utility {
     ProductDetailPageElement productDetailPageElement = new ProductDetailPageElement();
 
-    public void productDetailPage(){
+    public void productDetailPage() {
         switchToNewTab();
         clickElementWithWait(productDetailPageElement.popup);
     }
@@ -16,7 +16,7 @@ public class ProductDetailPage extends Utility {
                 + " " + getTextElement(productDetailPageElement.productDetailModel);
     }
 
-    public String addToCart(){
+    public String addToCart() {
         clickElementWithWait(productDetailPageElement.addToCartButton);
         return getTextElement(productDetailPageElement.numberOfProducts);
     }

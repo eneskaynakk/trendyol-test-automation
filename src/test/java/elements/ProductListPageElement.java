@@ -11,7 +11,7 @@ public class ProductListPageElement {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(css="div[class='dscrptn dscrptn-V2'] > h1")
+    @FindBy(css="div#search-app h1")
     public WebElement productListName;
 
     @FindBy(xpath="(//div[@class='chckbox'])[1]")
@@ -38,10 +38,10 @@ public class ProductListPageElement {
     @FindBy(xpath="(//span[@class='prdct-desc-cntnr-ttl'])[6]")
     public WebElement productBrandAfterFiltering;
 
-    @FindBy(xpath="((//h3[@class=\"prdct-desc-cntnr-ttl-w\"])[6]//span)[2]")
+    @FindBy(xpath="((//h3[@class='prdct-desc-cntnr-ttl-w'])[6]//span)[2]")
     public WebElement productModelAfterFiltering;
 
-    @FindBy(xpath="(//div[@class=\"product-desc-sub-container\"])[6]//div")
+    @FindBy(xpath="(//div[@class='product-desc-sub-container'])[6]//div")
     public WebElement productCategoryAfterFiltering;
 
 }

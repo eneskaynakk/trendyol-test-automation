@@ -2,7 +2,7 @@ package utility.library;
 
 import pages.*;
 
-public class PageLibrary{
+public class PageLibrary {
     LoginPage loginPage;
     MainPage mainPage;
     ProductListPage productListPage;

@@ -4,10 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utility.ConfigReader;
 
-public class ProductTest extends BaseTest{
+public class ProductTest extends BaseTest {
 
     @Test(priority = 1, groups = "regression")
-    public void productSearchProcess(){
+    public void productSearchTest() {
+        testCaseId = "7";
         String webSiteUrl = ConfigReader.getProperty("url");
         getAppLibrary().getFlowsLibrary().navigateToUrl(webSiteUrl);
         getAppLibrary().getPageLibrary().getMainPage().closeCookie();
@@ -20,7 +21,8 @@ public class ProductTest extends BaseTest{
     }
 
     @Test(priority = 2, groups = "regression")
-    public void productFilterProcess(){
+    public void productFilteringTest() {
+        testCaseId = "8";
         getAppLibrary().getPageLibrary().getProductListPage().productFilter();
 
         String actualResult = getAppLibrary().getPageLibrary().getProductListPage().searchedProductVerification();
@@ -29,7 +31,8 @@ public class ProductTest extends BaseTest{
     }
 
     @Test(priority = 3, groups = "regression")
-    public void goToProductDetail(){
+    public void productDetailsVerificationTest() {
+        testCaseId = "9";
         String actualResult = getAppLibrary().getPageLibrary().getProductListPage().getProductName();
 
         getAppLibrary().getPageLibrary().getProductListPage().goToProductDetailPage();
@@ -41,7 +44,8 @@ public class ProductTest extends BaseTest{
     }
 
     @Test(priority = 4, groups = "regression")
-    public void addToCartProcess(){
+    public void addToCartTest() {
+        testCaseId = "10";
         String actualResult = getAppLibrary().getPageLibrary().getProductDetailPage().addToCart();
         String expectedNumberOfProducts = "1";
         Assert.assertEquals(actualResult, expectedNumberOfProducts);

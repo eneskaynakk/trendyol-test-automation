@@ -7,7 +7,8 @@ import utility.ConfigReader;
 public class LoginTest extends BaseTest {
 
     @Test(priority = 1, groups = {"smoke","regression"})
-    public void loginEmailOnly() {
+    public void emailOnlyLoginTest () {
+        testCaseId = "3";
         String webSiteUrl = ConfigReader.getProperty("url");
         getAppLibrary().getFlowsLibrary().navigateToUrl(webSiteUrl);
         getAppLibrary().getPageLibrary().getMainPage().navigateToLoginPage();
@@ -22,7 +23,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(priority = 2, groups = {"smoke","regression"})
-    public void loginPasswordOnly() {
+    public void passwordOnlyLoginTest() {
+        testCaseId = "4";
         getAppLibrary().getPageLibrary().getLoginPage().fillPassword();
 
         String acutualResult = getAppLibrary().getPageLibrary().getLoginPage().errorMessageControl();
@@ -33,7 +35,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(priority = 3, groups = {"smoke","regression"})
-    public void loginInvalid() {
+    public void invalidCredentialsLoginTest() {
+        testCaseId = "5";
         getAppLibrary().getPageLibrary().getLoginPage().wrongEmailOrPassword();
 
         String acutualResult = getAppLibrary().getPageLibrary().getLoginPage().errorMessageControl();
@@ -45,6 +48,7 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 4, groups = {"smoke","regression"})
     public void successfulLoginTest() {
+        testCaseId = "6";
         String actualResult = getAppLibrary().getPageLibrary().getLoginPage().loginProcess();
         String expectedAccountText = "Hesabım";
         Assert.assertEquals(actualResult,expectedAccountText);

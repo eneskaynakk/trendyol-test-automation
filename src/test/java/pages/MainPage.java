@@ -1,13 +1,12 @@
 package pages;
 
 import elements.MainPageElement;
-import utility.ConfigReader;
 import utility.Utility;
 
 public class MainPage extends Utility {
     MainPageElement mainPageElement = new MainPageElement();
 
-    public void navigateToLoginPage(){
+    public void navigateToLoginPage() {
         closeCookie();
         clickElementWithWait(mainPageElement.loginLink);
     }
@@ -16,7 +15,7 @@ public class MainPage extends Utility {
         clickElementWithWait(mainPageElement.cookie);
     }
 
-    public void searchProduct(){
+    public void searchProduct() {
         clickElementWithWait(mainPageElement.searchBox);
         sendKeyToElement(mainPageElement.searchBox, "Kol Saati");
         clickElementWithWait(mainPageElement.searchClick);

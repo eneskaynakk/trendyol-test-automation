@@ -25,5 +25,4 @@ public class ProductDetailPageElement {
 
     @FindBy(css="[class='basket-item-count-container visible']")
     public WebElement numberOfProducts;
-
 }

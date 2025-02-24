@@ -9,27 +9,24 @@ public class LoginPage extends Utility {
     LoginPageElement loginPageElement = new LoginPageElement();
     MainPageElement mainPageElement = new MainPageElement();
 
-    public String fillMail() {
+    public void fillMail() {
         String userLoginEmail= ConfigReader.getProperty("email");
         sendKeyToElement(loginPageElement.email, userLoginEmail);
         clickElementWithWait(loginPageElement.loginButton);
-        return getLoginVerificationText();
     }
 
-    public String fillPassword() {
+    public void fillPassword() {
         String userLoginPassword= ConfigReader.getProperty("password");
         sendKeyToElement(loginPageElement.password, userLoginPassword);
         clickElementWithWait(loginPageElement.loginButton);
-        return getLoginVerificationText();
     }
 
-    public String wrongEmailOrPassword() {
+    public void wrongEmailOrPassword() {
         String userLoginEmail= ConfigReader.getProperty("email");
         sendKeyToElement(loginPageElement.email, userLoginEmail);
         String userLoginPassword= "asdasd";
         sendKeyToElement(loginPageElement.password, userLoginPassword);
         clickElementWithWait(loginPageElement.loginButton);
-        return getLoginVerificationText();
     }
 
     public String loginProcess() {
@@ -41,7 +38,7 @@ public class LoginPage extends Utility {
         return getLoginVerificationText();
     }
 
-    public String errorMessageControl(){
+    public String errorMessageControl() {
         return getTextElement(loginPageElement.errorMessage);
     }
 
