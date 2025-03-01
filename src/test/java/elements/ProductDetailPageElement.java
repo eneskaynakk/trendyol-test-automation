@@ -11,7 +11,7 @@ public class ProductDetailPageElement {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath="//aside//button[contains(text(), 'Anladım')]")
+    @FindBy(css="button[class='onboarding-popover__default-renderer-primary-button']")
     public WebElement popup;
 
     @FindBy(css="[class='product-brand-name-with-link']")

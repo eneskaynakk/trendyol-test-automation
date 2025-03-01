@@ -1,8 +1,6 @@
 package utility;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.library.FlowsLibrary;
@@ -15,7 +13,7 @@ public class Utility extends FlowsLibrary {
         try {
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
             wait.until(ExpectedConditions.visibilityOf(element)).click();
-        } catch (TimeoutException e) {
+        } catch (TimeoutException | NoSuchElementException e) {
             ScreenshotSendEmail.screenshotMailer(element);
         }
     }
@@ -31,7 +29,7 @@ public class Utility extends FlowsLibrary {
             JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
             js.executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
             wait.until(ExpectedConditions.visibilityOf(element)).click();
-        } catch (TimeoutException e) {
+        } catch (TimeoutException | NoSuchElementException e) {
             ScreenshotSendEmail.screenshotMailer(element);
         }
     }
@@ -40,7 +38,7 @@ public class Utility extends FlowsLibrary {
         try {
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
             wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(text);
-        } catch (TimeoutException e) {
+        } catch (TimeoutException | NoSuchElementException e) {
             ScreenshotSendEmail.screenshotMailer(element);
         }
     }

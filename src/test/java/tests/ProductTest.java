@@ -6,7 +6,7 @@ import utility.ConfigReader;
 
 public class ProductTest extends BaseTest {
 
-    @Test(priority = 1, groups = "regression")
+    @Test(priority = 1, groups = "regression", description = "Search for a product and verify the correct product is found.")
     public void productSearchTest() {
         testCaseId = "7";
         String webSiteUrl = ConfigReader.getProperty("url");
@@ -20,7 +20,7 @@ public class ProductTest extends BaseTest {
         Assert.assertEquals(actualResult, expectedProductNameText);
     }
 
-    @Test(priority = 2, groups = "regression")
+    @Test(priority = 2, groups = "regression", description = "Apply product filters and verify the filtering result.")
     public void productFilteringTest() {
         testCaseId = "8";
         getAppLibrary().getPageLibrary().getProductListPage().productFilter();
@@ -30,7 +30,7 @@ public class ProductTest extends BaseTest {
         Assert.assertEquals(actualResult, expectedProductsAfterFilteringText);
     }
 
-    @Test(priority = 3, groups = "regression")
+    @Test(priority = 3, groups = "regression", description = "Navigate to the product detail page and verify the product name.")
     public void productDetailsVerificationTest() {
         testCaseId = "9";
         String actualResult = getAppLibrary().getPageLibrary().getProductListPage().getProductName();
@@ -43,7 +43,7 @@ public class ProductTest extends BaseTest {
         Assert.assertEquals(actualResult, expectedProductName);
     }
 
-    @Test(priority = 4, groups = "regression")
+    @Test(priority = 4, groups = "regression", description = "Add product to cart and verify it is added successfully.")
     public void addToCartTest() {
         testCaseId = "10";
         String actualResult = getAppLibrary().getPageLibrary().getProductDetailPage().addToCart();
