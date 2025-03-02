@@ -37,6 +37,11 @@ public class ConfigReader {
     }
 
     public static String getProperty(String key) {
+        String envValue = System.getenv(key);
+        if (envValue != null) {
+            return envValue;
+        }
+
         String value = properties.getProperty(key);
         if (value == null) {
             System.out.println("Anahtar bulunamadı: " + key);
