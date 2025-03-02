@@ -48,19 +48,17 @@ Projenin bağımlılıkları pom.xml dosyasında tanımlanmıştır:
 Test çalıştırmadan önce aşağıdaki adımları takip edin:  
 1. resources klasörünün altında qa.properties adında dosya oluşturun.
 2. Dosyanın içerisine aşağıdaki değişkenlerin değerlerini kendi değerlerinize göre uyarlayın:
+   
     url = https://www.trendyol.com/
     browser = chrome
 
-    #Login Credentials
     email = trendyol_email
     password = trendyol_password
 
-    #TestRail Credentials
     testRailEmail = email
     testRailPassword = password
     testRailEngineUrl = url
 
-    #Gmail Credentials
     your_email = your_email
     send_email = send_email
     app_passwords = app_passwords
