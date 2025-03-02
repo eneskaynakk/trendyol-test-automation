@@ -11,9 +11,9 @@ import java.util.Map;
 public class TestRailManager {
 
     public static String TEST_RUN_ID = "1";
-    public static String testRailUserName = "TestRail_mail";
-    public static String testRailPassword = "TestRail_password";
-    public static String testRailEngineUrl = "TestRail_URL";
+    public static String testRailUserName = ConfigReader.getProperty("testRailEmail");
+    public static String testRailPassword = ConfigReader.getProperty("testRailPassword");
+    public static String testRailEngineUrl = ConfigReader.getProperty("testRailEngineUrl");
 
     public static int testCasePassStatus = 1;
     public static int testCaseFailStatus = 5;
