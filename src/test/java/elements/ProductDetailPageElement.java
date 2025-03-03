@@ -20,7 +20,7 @@ public class ProductDetailPageElement {
     @FindBy(css="h1[class='pr-new-br'] > span")
     public WebElement productDetailModel;
 
-    @FindBy(css="[class='add-to-basket-button-textt']")
+    @FindBy(css="[class='add-to-basket-button-text']")
     public WebElement addToCartButton;
 
     @FindBy(css="[class='basket-item-count-container visible']")
