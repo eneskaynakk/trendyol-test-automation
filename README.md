@@ -48,7 +48,7 @@ Projenin bağımlılıkları pom.xml dosyasında tanımlanmıştır:
 Test çalıştırmadan önce aşağıdaki adımları takip edin:  
 1. resources klasörünün altında qa.properties adında dosya oluşturun.
 2. Dosyanın içerisine aşağıdaki değişkenlerin değerlerini kendi değerlerinize göre uyarlayın:
-   
+   ```bash
     url = https://www.trendyol.com/
     browser = chrome
 
