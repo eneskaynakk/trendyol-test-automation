@@ -1,9 +1,6 @@
-# Java Selenium TestNG Projesi
-
-Bu proje, Java, Selenium ve TestNG kullanarak test otomasyon senaryolarını yürütmek amacıyla geliştirilmiştir. Proje, Maven yapılandırması ile yönetilmekte, Jenkins ile sürekli entegrasyon süreçlerine entegre edilmekte ve TestRail raporlama desteği sunmaktadır.
 ## Özellikler
-- Java 17 kullanılarak yazılmıştır.
-- Selenium 4.28.1 ile web otomasyon testi.
+- Java kullanılarak yazılmıştır.
+- Selenium ile Trendyol web otomasyon testi.
 - TestNG entegrasyonu ile test yönetimi.
 - TestRail Raporlama desteği.
 - Jenkins sürekli entegrasyon süreci.
@@ -11,7 +8,7 @@ Bu proje, Java, Selenium ve TestNG kullanarak test otomasyon senaryolarını yü
 
 ## Gereksinimler
 Projeyi çalıştırabilmek için aşağıdaki araçlara ihtiyacınız var:
-- Java 17 sürümü
+- Java 17
 - Maven 3.6+
 - IDE (IntelliJ IDEA, Eclipse vb.)
 
@@ -22,13 +19,6 @@ Projeyi çalıştırabilmek için aşağıdaki araçlara ihtiyacınız var:
 4. Maven'ın doğru kurulduğunu kontrol etmek için terminale şu komutu yazın:
     ```bash
     mvn -version
-    
-## Maven Bağımlılıkları
-Projenin bağımlılıkları pom.xml dosyasında tanımlanmıştır:
-- selenium-java: 4.28.1
-- testng: 7.11.0
-- commons-email: 1.6.0
-- json-simple: 1.1.1
 
 ## Nasıl Çalıştırılır?
 1. Projeyi klonlayın:
@@ -44,7 +34,7 @@ Projenin bağımlılıkları pom.xml dosyasında tanımlanmıştır:
     ```bash
     mvn test
     
-## Raporlama
+## Config Dosyası
 Test çalıştırmadan önce aşağıdaki adımları takip edin:  
 1. resources klasörünün altında qa.properties adında dosya oluşturun.
 2. Dosyanın içerisine aşağıdaki değişkenlerin değerlerini kendi değerlerinize göre uyarlayın:
