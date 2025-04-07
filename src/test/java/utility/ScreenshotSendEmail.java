@@ -12,42 +12,41 @@ import org.testng.Assert;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ScreenshotSendEmail extends Utility {
-    public static File savedScreenshot = null;
+    private static File screenshotFile = null;
 
     public static void screenshotMailer(WebElement element) {
         try {
-            File screenshot = ScreenshotSendEmail.takeScreenshot();
-            sendingMail(screenshot);
-
+            sendingMail(ScreenshotSendEmail.takeScreenshot());
         } catch (IOException | EmailException ex) {
             ex.printStackTrace();
         }
         Assert.fail("Öge Bulunamadı: " + element.toString());
     }
 
-
     public static File takeScreenshot() throws IOException {
-        if (savedScreenshot == null) {
-            File screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
-            Path screenshotDir = Paths.get("src/test/java/screenshots");
-            if (!Files.exists(screenshotDir)) {
-                Files.createDirectories(screenshotDir);
-            }
-            String fileName = "screenshot_" + new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date()) + ".png";
-            Path destination = screenshotDir.resolve(fileName);
-            Files.copy(screenshot.toPath(), destination, StandardCopyOption.REPLACE_EXISTING);
-            savedScreenshot = destination.toFile();
+        if (screenshotFile != null && screenshotFile.exists()) {
+            return screenshotFile;
         }
-        return savedScreenshot;
-    }
 
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
+        String formattedDate = myDateObj.format(myFormatObj);
+
+        File takeScreenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
+        File folder = new File("src/test/java/screenshots");
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        screenshotFile = new File(folder, formattedDate + ".png");
+        Files.copy(takeScreenshot.toPath(), screenshotFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+        return screenshotFile;
+    }
 
     public static void sendingMail(File screenshotFile) throws EmailException {
         HtmlEmail email = new HtmlEmail();
